@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.lzy.ui.VerticalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                               android:layout_width="match_parent"
+                               android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="#FF0"
+            android:text="第1条"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@mipmap/ic_launcher"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="#0FF"
+            android:text="第3条"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="#345"
+            android:text="第4条"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@mipmap/ic_launcher"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="#345"
+            android:text="第4条"/>
+    </LinearLayout>
+
+</com.lzy.ui.VerticalScrollView>
