@@ -1,4 +1,4 @@
-package com.lzy.widget;
+package com.lzy.widget.vertical;
 
 /**
  * ================================================

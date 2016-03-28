@@ -1,32 +1,32 @@
-package com.lzy.widget;
+package com.lzy.widget.vertical;
 
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-import android.widget.GridView;
+import android.widget.ListView;
 
 /**
  * ================================================
  * 作    者：廖子尧
  * 版    本：1.0
  * 创建日期：2016/3/1
- * 描    述：当GridView在最顶部或者最底部的时候，不消费事件
+ * 描    述：当ListView在最顶部或者最底部的时候，不消费事件
  * 修订历史：
  * ================================================
  */
-public class VerticalGridView extends GridView implements ObservableView {
+public class VerticalListView extends ListView implements ObservableView {
 
     private float downY;
 
-    public VerticalGridView(Context context) {
+    public VerticalListView(Context context) {
         this(context, null);
     }
 
-    public VerticalGridView(Context context, AttributeSet attrs) {
-        this(context, attrs, android.R.attr.gridViewStyle);
+    public VerticalListView(Context context, AttributeSet attrs) {
+        this(context, attrs, android.R.attr.listViewStyle);
     }
 
-    public VerticalGridView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public VerticalListView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 

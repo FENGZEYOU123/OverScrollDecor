@@ -1,34 +1,32 @@
-package com.lzy.widget;
+package com.lzy.widget.vertical;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.os.Build;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-import android.widget.ScrollView;
+import android.webkit.WebView;
 
 /**
  * ================================================
  * 作    者：廖子尧
  * 版    本：1.0
  * 创建日期：2016/3/1
- * 描    述：当ScrollView在最顶部或者最底部的时候，不消费事件
+ * 描    述：当WebView在最顶部或者最底部的时候，不消费事件
  * 修订历史：
  * ================================================
  */
-public class VerticalScrollView extends ScrollView implements ObservableView {
+public class VerticalWebView extends WebView implements ObservableView {
 
     private float downY;
 
-    public VerticalScrollView(Context context) {
+    public VerticalWebView(Context context) {
         this(context, null);
     }
 
-    public VerticalScrollView(Context context, AttributeSet attrs) {
-        this(context, attrs, android.R.attr.scrollViewStyle);
+    public VerticalWebView(Context context, AttributeSet attrs) {
+        this(context, attrs, android.R.attr.webViewStyle);
     }
 
-    public VerticalScrollView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public VerticalWebView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
@@ -55,22 +53,13 @@ public class VerticalScrollView extends ScrollView implements ObservableView {
         return super.dispatchTouchEvent(ev);
     }
 
-    @SuppressLint("NewApi")
     @Override
     public boolean isTop() {
-        if (Build.VERSION.SDK_INT >= 14) {
-            return !canScrollVertically(-1);
-        } else {
-            return getScrollY() <= 0;
-        }
+        return getScrollY() <= 0;
     }
 
     @Override
     public boolean isBottom() {
-        if (Build.VERSION.SDK_INT >= 14) {
-            return !canScrollVertically(1);
-        } else {
-            return getScrollY() + getHeight() >= computeVerticalScrollRange();
-        }
+        return getHeight() + getScrollY() >= getContentHeight() * getScale();
     }
 }
