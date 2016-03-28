@@ -4,7 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/OverScrollDecor.iml" filepath="$PROJECT_DIR$/OverScrollDecor.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/library_overscroll/library_overscroll.iml" filepath="$PROJECT_DIR$/library_overscroll/library_overscroll.iml" />
+      <module fileurl="file://$PROJECT_DIR$/overscroll/overscroll.iml" filepath="$PROJECT_DIR$/overscroll/overscroll.iml" />
     </modules>
   </component>
 </project>

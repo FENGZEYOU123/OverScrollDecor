@@ -14,11 +14,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.lzy.ui.OverScrollDecor;
-import com.lzy.ui.VerticalGridView;
-import com.lzy.ui.VerticalListView;
-import com.lzy.ui.VerticalRecyclerView;
-import com.lzy.ui.VerticalWebView;
+import com.lzy.widget.OverScrollDecor;
+import com.lzy.widget.vertical.VerticalGridView;
+import com.lzy.widget.vertical.VerticalListView;
+import com.lzy.widget.vertical.VerticalRecyclerView;
+import com.lzy.widget.vertical.VerticalWebView;
 
 import java.util.ArrayList;
 

@@ -1,1 +1,1 @@
-include ':app', ':library_overscroll'
+include ':app', ':overscroll'
