@@ -25,4 +25,5 @@ dependencies {
 
     compile 'com.lzy.widget:view-core:0.1.9'
     compile 'com.lzy.utils:utils-core:0.1.2'
+    
 }
