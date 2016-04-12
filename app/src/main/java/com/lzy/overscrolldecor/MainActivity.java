@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         strings.add("ListView");
         strings.add("GridView");
         strings.add("RecyclerView");
+        strings.add("ViewPager");
         strings.add("WebView");
         strings.add("TextView");
         strings.add("ImageView");

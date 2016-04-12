@@ -2,6 +2,8 @@ package com.lzy.overscrolldecor;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -14,7 +16,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.lzy.utils.ColorUtils;
 import com.lzy.widget.OverScrollDecor;
+import com.lzy.widget.tab.PagerSlidingTabStrip;
 import com.lzy.widget.vertical.VerticalGridView;
 import com.lzy.widget.vertical.VerticalListView;
 import com.lzy.widget.vertical.VerticalRecyclerView;
@@ -64,6 +68,14 @@ public class OverScrollActivity extends AppCompatActivity {
                 recyclerView.setAdapter(new MyAdapter());
                 overScrollDecor.addView(recyclerView);
                 break;
+            case "ViewPager":
+                View viewpagerRoot = View.inflate(this, R.layout.include_viewpager, null);
+                ViewPager viewPager = (ViewPager) viewpagerRoot.findViewById(R.id.viewPager);
+                PagerSlidingTabStrip tab = (PagerSlidingTabStrip) viewpagerRoot.findViewById(R.id.tab);
+                viewPager.setAdapter(new MyPagerAdapter());
+                tab.setViewPager(viewPager);
+                overScrollDecor.addView(viewpagerRoot);
+                break;
             case "WebView":
                 VerticalWebView webView = new VerticalWebView(this);
                 webView.loadUrl("https://github.com/jeasonlzy0216");
@@ -75,24 +87,24 @@ public class OverScrollActivity extends AppCompatActivity {
                 textView.setTextColor(Color.WHITE);
                 textView.setGravity(Gravity.CENTER);
                 textView.setText("textView");
-                textView.setBackgroundColor(ColorUtil.generateBeautifulColor());
+                textView.setBackgroundColor(ColorUtils.randomColor());
                 overScrollDecor.addView(textView);
                 break;
             case "ImageView":
                 ImageView imageView = new ImageView(this);
                 imageView.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 500));
                 imageView.setImageResource(R.mipmap.ic_launcher);
-                imageView.setBackgroundColor(ColorUtil.generateBeautifulColor());
+                imageView.setBackgroundColor(ColorUtils.randomColor());
                 overScrollDecor.addView(imageView);
                 break;
             case "FrameLayout":
                 FrameLayout frameLayout = new FrameLayout(this);
-                frameLayout.setBackgroundColor(ColorUtil.generateBeautifulColor());
+                frameLayout.setBackgroundColor(ColorUtils.randomColor());
                 overScrollDecor.addView(frameLayout);
                 break;
             case "LinearLayout":
                 LinearLayout linearLayout = new LinearLayout(this);
-                linearLayout.setBackgroundColor(ColorUtil.generateBeautifulColor());
+                linearLayout.setBackgroundColor(ColorUtils.randomColor());
                 overScrollDecor.addView(linearLayout);
                 break;
             default:
@@ -100,6 +112,50 @@ public class OverScrollActivity extends AppCompatActivity {
                 other.setGravity(Gravity.CENTER);
                 other.setText("任意View和ViewGroup都可以");
                 overScrollDecor.addView(other);
+        }
+    }
+
+    private class MyPagerAdapter extends PagerAdapter {
+
+        private ArrayList<String> titles;
+
+        public MyPagerAdapter() {
+            titles = new ArrayList<>();
+            titles.add("第一页");
+            titles.add("第二页");
+            titles.add("第三页");
+            titles.add("第四页");
+        }
+
+        @Override
+        public Object instantiateItem(ViewGroup container, int position) {
+            TextView textView = new TextView(getApplicationContext());
+            textView.setText(titles.get(position));
+            textView.setTextSize(20);
+            textView.setTextColor(Color.WHITE);
+            textView.setBackgroundColor(ColorUtils.randomColor());
+            container.addView(textView);
+            return textView;
+        }
+
+        @Override
+        public void destroyItem(ViewGroup container, int position, Object object) {
+            container.removeView((View) object);
+        }
+
+        @Override
+        public int getCount() {
+            return titles.size();
+        }
+
+        @Override
+        public boolean isViewFromObject(View view, Object object) {
+            return view == object;
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return titles.get(position);
         }
     }
 
@@ -133,7 +189,7 @@ public class OverScrollActivity extends AppCompatActivity {
                 textView.setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 300));
                 textView.setText(strings.get(position));
                 textView.setTextColor(Color.WHITE);
-                textView.setBackgroundColor(ColorUtil.generateBeautifulColor());
+                textView.setBackgroundColor(ColorUtils.randomColor());
             }
         }
     }
